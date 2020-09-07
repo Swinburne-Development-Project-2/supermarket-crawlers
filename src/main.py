@@ -1,4 +1,5 @@
-# import requests
+import requests
+from bs4 import BeautifulSoup
 
 # def main():
 #     url = 'https://api.coles.com.au/customer/v1/coles/products/search?limit=20&q=Drinks&start=40&storeId=7716&type=SKU'
@@ -21,6 +22,17 @@
 #     for res in results:
 #         print(res)
 
-# if __name__ == '__main__':
-#     main()
+def main():
+    url = 'https://www.aldi.com.au/en/groceries/super-savers/'
+
+    r = requests.get(url)
+
+    html = r.text
+
+    soup = BeautifulSoup(html, 'html');
+
+    print(soup)
+
+if __name__ == '__main__':
+    main()
     
