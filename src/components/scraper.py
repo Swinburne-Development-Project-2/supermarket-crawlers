@@ -1,12 +1,10 @@
 # author: long nguyen (nguyenhailong253@gmail.com)
 
-import smtplib
-import requests
 import pandas as pd
 from itertools import cycle
-from contextlib import contextmanager
 from datetime import datetime, timedelta
-# from src.common import get_proxy, get_headers
+from src.common.download_headers import download_agent_headers
+from src.common.download_proxy import download_free_proxies
 
 class Scraper(object):
     ''' Parent class of all scrapers '''
@@ -41,24 +39,24 @@ class Scraper(object):
             headers.add(r['User agent'])
         return headers
 
-    def get_proxies(self):
+    def get_next_proxy(self):
         ''' Get the next proxy in proxy pool'''
         proxy = next(self.proxy_pool)
         return {"http": proxy, "https": proxy}
 
-    def get_headers(self):
+    def get_next_header(self):
         ''' Get the next header in header pool'''
         headers = next(self.header_pool)
         return {"User-Agent": headers}
 
     def reset_proxy_pool(self):
         ''' Download new proxies, save to csv and load csv'''
-        get_proxy()
+        download_free_proxies()
         proxies = self.load_proxies()
         self.proxy_pool = cycle(proxies)
 
-
-if __name__ == '__main__':
-    test_scraper = Scraper()
-    print(test_scraper.load_user_headers())
-    
+    def reset_headers_pool(self):
+        ''' Download new headers, save to csv and load csv'''
+        download_agent_headers()
+        headers = self.load_user_headers()
+        self.header_pool = cycle(headers)

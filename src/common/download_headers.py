@@ -1,7 +1,5 @@
 import requests
 import pandas as pd
-# import urllib3
-# urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 HEADERS = {
     "User-Agent":
@@ -25,7 +23,4 @@ def download_agent_headers(to_csv=True):
 
     results = pd.concat(dfs)
     if to_csv:
-        results.to_csv("../csv/user_agents.csv")
-
-if __name__ == '__main__':
-    download_agent_headers()
+        results.to_csv("./src/csv/user_agents.csv")

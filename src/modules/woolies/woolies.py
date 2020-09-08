@@ -126,6 +126,3 @@ class WooliesScraper(Scraper):
 if __name__ == '__main__':
     woolies = WooliesScraper()
     woolies.run()
-    # sys.path.append('/Users/long.nguyen/Desktop/uni/DP2/supermarket-crawlers')
-    # print(sys.path)
-    
