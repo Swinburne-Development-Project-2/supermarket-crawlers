@@ -1,4 +1,4 @@
-from src.components.scraper import Scraper
+from src.components.crawler import Crawler
 from bs4 import BeautifulSoup as soup
 from selenium import webdriver
 from urllib.request import urlopen
@@ -7,7 +7,7 @@ import json
 import datetime
 import sys
 
-class WooliesScraper(Scraper):
+class WooliesCrawler(Crawler):
 
     def __init__(self):
         super().__init__()
@@ -122,7 +122,3 @@ class WooliesScraper(Scraper):
             json.dump(full_list, outfile, default=self.myconverter)
 
         print(len(arr))
-
-if __name__ == '__main__':
-    woolies = WooliesScraper()
-    woolies.run()

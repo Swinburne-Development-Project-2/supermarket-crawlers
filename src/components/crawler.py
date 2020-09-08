@@ -6,8 +6,8 @@ from datetime import datetime, timedelta
 from src.common.download_headers import download_agent_headers
 from src.common.download_proxy import download_free_proxies
 
-class Scraper(object):
-    ''' Parent class of all scrapers '''
+class Crawler(object):
+    ''' Parent class of all crawlers '''
 
     def __init__(self):
         self.NOW = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

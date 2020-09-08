@@ -1,10 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from src.components.scraper import Scraper
+from src.components.crawler import Crawler
 
 def main():
-    scrape = Scraper()
-    print(scrape.get_next_proxy());
+    crawl = Crawler()
+    print(crawl.get_next_proxy());
 
 if __name__ == '__main__':
     main()
