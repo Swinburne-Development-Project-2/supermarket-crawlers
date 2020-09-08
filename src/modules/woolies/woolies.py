@@ -1,22 +1,31 @@
-from src.components.crawler import Crawler
 from bs4 import BeautifulSoup as soup
 from selenium import webdriver
 from urllib.request import urlopen
 from time import sleep
+from .base import WooliesBaseCrawler
+from .woolies_urls import CATEGORY_URLS
 import json
 import datetime
 import sys
 
-class WooliesCrawler(Crawler):
+{
+    "url": {
+        "class": "shelfProductTile-imageWrapper",
+        "base": "https://www.woolworths.com.au",
+        "append": "/shop/productdetails/544762/primo-chicken-breast-thinly-sliced"
+    }
+}
+
+class WooliesCrawler(WooliesBaseCrawler):
 
     def __init__(self):
         super().__init__()
-        self.headers = self.get_headers()
-        self.proxies = self.get_proxies()
 
-    def scrapping(self, container_soup, category):
+    def scrapping(self, html):
+
+        containers = self.get_items_on_page(html)
+        category = self.get_category_title(html)
         
-        containers = container_soup
         print('Total items in this page: ' + str(len(containers)))
         print('')
         
@@ -38,7 +47,7 @@ class WooliesCrawler(Crawler):
                 price_cent = container.find('span', {'class': 'price-cents'})
                 price = '$' + price_dollar.text + '.' + price_cent.text
             else:
-                price = 'Unavailable at the momment'
+                price = 'Currently not in stock'
                 availability = False
 
             obj = {
@@ -60,58 +69,36 @@ class WooliesCrawler(Crawler):
             return o.__str__()
 
     def run(self):
-        # adding webdriver options
-        options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")
-        driver = webdriver.Chrome(
-            executable_path=r'../../chromedriver.exe', options=options)
-
         # contain full list details for woolies
         full_list = []
         seller = {
-            "seller":
-            {"name": "Woolsworth",
-            "description": "Woolsworth Supermarket",
-            "url": "https://www.woolsworth.com.au",
-            "added_datetime": None
+            "seller": {
+                "name": "Woolsworth",
+                "description": "Woolsworth Supermarket",
+                "url": "https://www.woolsworth.com.au",
+                "added_datetime": None
             }
         }
         full_list.append(seller)
         arr = []  # used to store every object
 
-        # list of url section
-        url_header = ['https://www.woolworths.com.au/shop/browse/fruit-veg?pageNumber=',
-                    # 'https://www.woolworths.com.au/shop/browse/meat-seafood-deli?pageNumber=',
-                    # 'https://www.woolworths.com.au/shop/browse/bakery?pageNumber=',
-                    # 'https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge?pageNumber=',
-                    # 'https://www.woolworths.com.au/shop/browse/pantry?pageNumber=',
-                    # 'https://www.woolworths.com.au/shop/browse/freezer?pageNumber=',
-                    # 'https://www.woolworths.com.au/shop/browse/drinks?pageNumber=',
-                    # 'https://www.woolworths.com.au/shop/browse/liquor?pageNumber='
-                    ]
-
         # scrapping for each section selected in the list
-        for header in url_header:
+        for base_url in CATEGORY_URLS:
             n_items = 1
-            i = 1
+            page_number = 1
 
             while(n_items != 0):
-                url = header + str(i)
-                print('page ' + str(i) + ": " + url)
-                driver.get(url)
-                sleep(10)
-                html = driver.page_source
-                page_soup = soup(html, 'html.parser')
+                url = self.format_url(base_url, page_number)
+                print('Page ' + str(page_number) + ": " + url)
 
-                container_soup = page_soup.findAll(
-                    'div', {'class': 'shelfProductTile-information'})
-                if(len(container_soup) != 0):
-                    category = page_soup.find(
-                        'h1', {'class': 'tileList-title'}).text.strip()
-                arrSinglePage, n_items = self.scrapping(container_soup, category)
+                html = self.parse_html_page(url)
+
+                arrSinglePage, n_items = self.scrapping(html)
+
                 for obj in arrSinglePage:
                     arr.append(obj)
-                i = i + 1
+
+                page_number = page_number + 1
 
         # add the products array to the full list
         products = {'products': arr}

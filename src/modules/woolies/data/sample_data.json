@@ -1,0 +1,28 @@
+[
+    {
+        "name": "product-name",
+        "price": "$4.89",
+        "category": "Fruit & Veg",
+        "img_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/133621.jpg",
+        "product_tag": "2 for $5.00",
+        "cup_price": "$3.00/1EA",
+        "ratings": "Average product rating out of 5: 4.12. Product score is based on 363 ratings",
+        "rating_count": "363",
+        "viewed_date": "2020-09-08 16:37:10",
+        "supermarket": "Woolworths Supermarkets",
+        "url": "https://www.woolworths.com.au/shop/productdetails/544762/primo-chicken-breast-thinly-sliced"
+    },
+    {
+        "name": "product-name",
+        "price": "$4.89",
+        "category": "Fruit & Veg",
+        "img_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/133621.jpg",
+        "product_tag": "2 for $5.00",
+        "cup_price": "$3.00/1EA",
+        "ratings": "Average product rating out of 5: 4.12. Product score is based on 363 ratings",
+        "rating_count": "363",
+        "viewed_date": "2020-09-08 16:37:10",
+        "supermarket": "Woolworths Supermarkets",
+        "url": "https://www.woolworths.com.au/shop/productdetails/544762/primo-chicken-breast-thinly-sliced"
+    }
+]
