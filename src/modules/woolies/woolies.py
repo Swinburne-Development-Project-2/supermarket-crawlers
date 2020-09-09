@@ -100,6 +100,8 @@ class WooliesCrawler(WooliesBaseCrawler):
 
                 page_number = page_number + 1
 
+
+        #https://stackoverflow.com/questions/1720421/how-do-i-concatenate-two-lists-in-python
         # add the products array to the full list
         products = {'products': arr}
         full_list.append(products)
