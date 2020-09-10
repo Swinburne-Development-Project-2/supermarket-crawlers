@@ -139,7 +139,12 @@ class WooliesBaseCrawler(Crawler):
                 {'class':'price-dollars'}).text.strip()
             cent_amount = item_html.find('span', 
                 {'class':'price-cents'}).text.strip()
-            price = '${}{}'.format(dollar_amount, cent_amount)
+            price = '${}.{}'.format(dollar_amount, cent_amount)
         except Exception as e:
             print("ERROR - get_product_price: {}".format(e))
         return price
+
+    def get_product_id(self, img_url):
+        product_id = img_url.replace(
+            'https://cdn0.woolworths.media/content/wowproductimages/medium/', '').replace('.jpg', '')
+        return product_id    

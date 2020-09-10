@@ -1,5 +1,5 @@
 CATEGORY_URLS = [
-    'https://www.woolworths.com.au/shop/browse/fruit-veg?pageNumber=',
+    # 'https://www.woolworths.com.au/shop/browse/fruit-veg?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/meat-seafood-deli?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/bakery?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge?pageNumber=',
@@ -11,5 +11,5 @@ CATEGORY_URLS = [
     # 'https://www.woolworths.com.au/shop/browse/baby?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/health-beauty?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/household?pageNumber=',
-    # 'https://www.woolworths.com.au/shop/browse/lunch-box?pageNumber=',
+    'https://www.woolworths.com.au/shop/browse/lunch-box?pageNumber=',
 ]
