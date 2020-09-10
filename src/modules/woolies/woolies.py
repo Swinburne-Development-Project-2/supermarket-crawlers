@@ -16,6 +16,7 @@ CSV_COLUMN_NAMES = [
     'supermarket',
     'category',
     'product_name',
+    'product_id',
     'price',
     'cup_price',
     'product_url',
@@ -49,10 +50,12 @@ class WooliesCrawler(WooliesBaseCrawler):
         cup_price = self.get_product_cup_price(item)
         price = self.get_product_price(item)
         available_in_stock = True if price else False
+        product_id = self.get_product_id(img_url)
 
         return [SUPERMARKET, 
             self.current_category,
             product_name,
+            product_id,
             price,
             cup_price,
             product_url,
