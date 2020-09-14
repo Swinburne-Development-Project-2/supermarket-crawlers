@@ -6,10 +6,10 @@ CATEGORY_URLS = [
     # 'https://www.woolworths.com.au/shop/browse/pantry?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/freezer?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/drinks?pageNumber=',
-    # 'https://www.woolworths.com.au/shop/browse/liquor?pageNumber=',
+    'https://www.woolworths.com.au/shop/browse/liquor?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/pet?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/baby?pageNumber=',
-    'https://www.woolworths.com.au/shop/browse/health-beauty?pageNumber=',
+    # 'https://www.woolworths.com.au/shop/browse/health-beauty?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/household?pageNumber=',
     # 'https://www.woolworths.com.au/shop/browse/lunch-box?pageNumber=',
 ]
