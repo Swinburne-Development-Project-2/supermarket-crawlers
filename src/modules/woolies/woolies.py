@@ -14,7 +14,7 @@ import re
 SUPERMARKET = 'Woolworths Supermarket'
 
 CSV_COLUMN_NAMES = [
-    'id'
+    'id',
     'supermarket',
     'category',
     'product_name',
