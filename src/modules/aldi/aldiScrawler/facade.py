@@ -28,7 +28,7 @@ class facade:
         sourcefile = 'data/' + finalcategory + '.csv'
         csv_file = open(sourcefile, 'w')
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(['supermarket','category', 'product_name', 'product_id', 'price', 'cup_price', 'product_url', 'img_url', 'viewed_date'])
+        csv_writer.writerow(['id','supermarket','category', 'product_name', 'product_id', 'price', 'cup_price', 'product_url', 'img_url', 'viewed_date', 'ratings', 'rating_count','product_specials','available_in_stock'])
         num = 1
         for categoryList in soup.find_all('a', class_="box--wrapper ym-gl ym-g25"):
             pName = categoryList.find('div', class_="box--description--header").text
@@ -58,11 +58,9 @@ class facade:
             else:        
                 price = str(itemValue) + itemDecimal  
             #The ID number
-            num += 1
             productID = self.generateID(supName, category, pName, num)
-            print (productID)
-            
-            csv_writer.writerow([supName, category, pName, productID, price, basePrice, generalUrl, imageUrl, viewdate])
+            csv_writer.writerow([num, supName, category, pName, productID, price, basePrice, generalUrl, imageUrl, viewdate, 'null', 'null', 'null', 'true'])
+            num += 1
         csv_file.close()
 
      def returnListLink(self):
