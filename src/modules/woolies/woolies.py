@@ -6,6 +6,7 @@ from .base import WooliesBaseCrawler
 from .woolies_urls import CATEGORY_URLS
 import json
 import datetime
+import uuid
 import sys
 import csv
 import re
@@ -13,6 +14,7 @@ import re
 SUPERMARKET = 'Woolworths Supermarket'
 
 CSV_COLUMN_NAMES = [
+    'id',
     'supermarket',
     'category',
     'product_name',
@@ -52,7 +54,8 @@ class WooliesCrawler(WooliesBaseCrawler):
         available_in_stock = True if price else False
         product_id = self.get_product_id(img_url)
 
-        return [SUPERMARKET, 
+        return [str(uuid.uuid4()),
+            SUPERMARKET, 
             self.current_category,
             product_name,
             product_id,

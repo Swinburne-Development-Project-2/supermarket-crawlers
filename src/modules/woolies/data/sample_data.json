@@ -1,32 +1,19 @@
 [
     {
-        "product_name": "product-name",
-        "price": "$4.89",
-        "category": "Fruit & Veg",
-        "img_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/133621.jpg",
-        "product_specials": "2 for $5.00",
-        "cup_price": "$3.00/1EA",
-        "ratings": "Average product rating out of 5: 4.12. Product score is based on 363 ratings",
-        "rating_count": "363",
-        "viewed_date": "2020-09-08 16:37:10",
+        "id": "124135-15319513",
         "supermarket": "Woolworths Supermarkets",
-        "url": "https://www.woolworths.com.au/shop/productdetails/544762/primo-chicken-breast-thinly-sliced",
-        "available_in_stock": false,
-        "product-id": "124151"
-    },
-    {
-        "product_name": "product-name",
-        "price": "$4.89",
         "category": "Fruit & Veg",
-        "img_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/133621.jpg",
-        "product_specials": "2 for $5.00",
+        "product_name": "product-name",
+        "product-id": "124151",
+        "price": "$4.89",
         "cup_price": "$3.00/1EA",
-        "ratings": "Average product rating out of 5: 4.12. Product score is based on 363 ratings",
-        "rating_count": "363",
+        "product_url": "https://www.woolworths.com.au/shop/productdetails/544762/primo-chicken-breast-thinly-sliced",
+        "img_url": "https://cdn0.woolworths.media/content/wowproductimages/medium/133621.jpg",
         "viewed_date": "2020-09-08 16:37:10",
-        "supermarket": "Woolworths Supermarkets",
-        "url": "https://www.woolworths.com.au/shop/productdetails/544762/primo-chicken-breast-thinly-sliced",
-        "available_in_stock": true,
-        "product-id": "124151"
+        // Aldi will have NULL values for the below keys
+        "ratings": "Average product rating out of 5: 4.12. Product score is based on 363 ratings",
+        "rating_count": "363", 
+        "product_specials": "2 for $5.00",
+        "available_in_stock": false // Aldi will always be TRUE
     }
 ]
