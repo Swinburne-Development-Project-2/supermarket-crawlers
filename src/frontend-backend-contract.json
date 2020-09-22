@@ -1,0 +1,24 @@
+{
+    "woolies": [
+        {
+            "productName": "Iceberg Lettuce",
+            "price": "$4.89",
+            "productUrl": "https://www.woolworths.com.au/shop/productdetails/544762/primo-chicken-breast-thinly-sliced",
+            "imgUrl": "https://cdn0.woolworths.media/content/wowproductimages/medium/133621.jpg"
+        },
+        {
+            "productName": "Random Lettuce",
+            "price": "$4.89",
+            "productUrl": "https://www.woolworths.com.au/shop/productdetails/544762/primo-chicken-breast-thinly-sliced",
+            "imgUrl": "https://cdn0.woolworths.media/content/wowproductimages/medium/133621.jpg"
+        }
+    ],
+    "aldi": [
+        {
+            "productName": "Baby Lettuce",
+            "price": "$4.89",
+            "productUrl": "https://www.aldi.com.au/en/groceries/beauty/beauty-detail/ps/p/lacura-essentials-bb-cream-spf-15-50ml/",
+            "imgUrl": "https://www.aldi.com.au/fileadmin/fm-dam/Products/Groceries/skin_care/ALN1075_SKIN_CARE_UPDATE_1x1_228x128_6.jpg"
+        }
+    ]
+}
